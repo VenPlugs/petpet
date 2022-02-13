@@ -20,7 +20,7 @@ const { join } = require("path");
 const GifEncoder = require("./gifencoder");
 
 const defaults = {
-    resolution: 128,
+    resolution: 96,
     delay: 40
 };
 
