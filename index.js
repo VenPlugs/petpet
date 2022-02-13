@@ -21,7 +21,7 @@ const GifEncoder = require("./gifencoder");
 
 const defaults = {
     resolution: 128,
-    delay: 20
+    delay: 40
 };
 
 const emoteRegex = /<?(a)?:?(\w{2,32}):(\d{17,19})>?/;
@@ -36,10 +36,10 @@ module.exports = class PetPet extends Plugin {
 
         powercord.api.commands.registerCommand({
             command: "petpet",
-            aliases: ["patpat"],
+            aliases: ["patpat","pet","pat"],
             description: "Generate a pet gif",
-            usage: "<IMAGE_URL | EMOTE | UserID / Mention> [FILE_NAME - default pet.gif] [DELAY - default 20)] [RESOLUTION - default 128]",
-            executor: async ([url, fileName, delay, resolution]) => {
+            usage: "<IMAGE_URL | EMOTE | UserID / Mention> [DELAY - default 20)] [RESOLUTION - default 128] [FILE_NAME - default pet.gif]",
+            executor: async ([url, delay, resolution, fileName]) => {
                 if (!url) return res(`give me an image or user to pet dummy`);
 
                 if (!url.startsWith("http")) {
